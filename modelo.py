@@ -34,7 +34,7 @@ def vpn(tasa, flujos):
     return sum(f / (1 + tasa) ** t for t, f in enumerate(flujos))
 
 
-def tir(flujos, bajo=-0.99, alto=1.0, tol=1e-9, max_iter=500):
+def tir(flujos, bajo=-0.5, alto=1.0, tol=1e-9, max_iter=500):
     """TIR por bisección (tasa por período). None si no hay cambio de signo."""
     f_bajo, f_alto = vpn(bajo, flujos), vpn(alto, flujos)
     if f_bajo * f_alto > 0:
